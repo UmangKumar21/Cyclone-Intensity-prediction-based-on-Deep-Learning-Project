@@ -1,30 +1,44 @@
-from keras.layers import Input, Lambda, Dense, Flatten
-from keras.models import Model
+from keras.layers 
+import Input, Lambda, Dense, Flatten
+from keras.models
+import Model
 import tensorflow as tf
-from tensorflow.keras.applications.vgg16 import preprocess_input
-from keras.applications.vgg16 import VGG16
-from keras.preprocessing import image
-from keras.preprocessing.image import ImageDataGenerator
-from keras.models import Sequential
-from tensorflow import keras
+from tensorflow.keras.applications.vgg16
+import preprocess_input
+from keras.applications.vgg16 
+import VGG16
+from keras.preprocessing
+import image
+from keras.preprocessing.image 
+import ImageDataGenerator
+from keras.models 
+import Sequential
+from tensorflow
+import keras
 import numpy as np
-from glob import glob
+from glob 
+import glob
 import matplotlib.pyplot as plt
 
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
-from google.colab import drive
+from google.colab 
+import drive
 drive.mount('/content/drive')
 IMAGE_SIZE = [224, 224]
 train_path = '/content/drive/MyDrive/SIH_TRAIN1'
 test_path = '/content/drive/MyDrive/SIH_TEST1'
-from PIL import Image 
+from PIL 
+import Image 
 import os 
-from IPython.display import display
-from IPython.display import Image as _Imgdis
+from IPython.display 
+import display
+from IPython.display 
+import Image as _Imgdis
+
+
 # creating a object  
 
-  
 folder = train_path+'/D'
 
 
@@ -64,21 +78,14 @@ test_datagen = ImageDataGenerator(
     zoom_range=0.2,
     horizontal_flip=True,
     fill_mode='nearest')
-    train_set = train_datagen.flow_from_directory(train_path,
-                                                 target_size = (224, 224),
-                                                 batch_size = 8,
-                                                 class_mode = 'categorical')
-    test_set = test_datagen.flow_from_directory(test_path,
-                                            target_size = (224, 224),
-                                            batch_size = 8,
-                                            class_mode = 'categorical')
+    train_set = train_datagen.flow_from_directory(train_path,target_size = (224, 224),batch_size = 8,class_mode = 'categorical')
+    test_set = test_datagen.flow_from_directory(test_path,target_size = (224, 224),batch_size = 8,class_mode = 'categorical')
     from datetime import datetime
 from keras.callbacks import ModelCheckpoint
 model.compile(loss='categorical_crossentropy',metrics=['accuracy'],optimizer='adam')
 
 
-checkpoint = ModelCheckpoint(filepath='/content/drive/MyDrive/S_I_H/mymodel.h5', 
-                               verbose=2, save_best_only=True)
+checkpoint = ModelCheckpoint(filepath='/content/drive/MyDrive/S_I_H/mymodel.h5',verbose=2, save_best_only=True)
 
 callbacks = [checkpoint]
 
@@ -97,7 +104,8 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Test'], loc='upper left')
 plt.show()
 folders
-from keras.models import load_model
+from keras.models 
+import load_model
 import cv2
 import numpy as np
 
